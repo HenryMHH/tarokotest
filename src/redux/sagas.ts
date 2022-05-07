@@ -31,7 +31,6 @@ function* fetchUserListSaga() {
 		}
 		yield put(fetchListSuccess(result));
 	} catch (error) {
-		console.error(error);
 		yield put(fetchListFailed({}));
 	}
 }
@@ -44,7 +43,6 @@ function* createUserSaga(action) {
 		}
 		yield put(createUserSuccess(result));
 	} catch (error) {
-		console.error(error);
 		yield put(createUserFailed({}));
 	}
 }
