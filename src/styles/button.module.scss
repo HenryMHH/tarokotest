@@ -1,0 +1,32 @@
+@use "./theme.scss" as theme;
+
+button {
+	border: none;
+	padding: 0.7rem 0.7rem;
+	border-radius: 5px;
+	min-width: 80px;
+	font-family: "Noto Sans TC", "Roboto", sans-serif;
+	font-weight: 500;
+	transition: background 0.1s ease;
+	cursor: pointer;
+	&.primary {
+		background: theme.$main-200;
+		&:hover {
+			background: theme.$main-300;
+		}
+		&:focus {
+			box-shadow: 0 0 0 2px theme.$main-500;
+		}
+	}
+
+	&.danger {
+		color: white;
+		background: theme.$red-500;
+		&:hover {
+			background: theme.$red-600;
+		}
+		&:focus {
+			box-shadow: 0 0 0 2px theme.$red-700;
+		}
+	}
+}

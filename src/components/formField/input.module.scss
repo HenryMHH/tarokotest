@@ -1,0 +1,28 @@
+@use "styles/theme.scss" as theme;
+@use "styles/mixin.scss" as mixin;
+
+.formfield {
+	padding: 3px;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.input {
+	outline: none;
+	border: 2px solid theme.$main-300;
+	border-radius: 5px;
+	font-size: 1.3rem;
+	width: 100%;
+	box-sizing: border-box;
+	&:focus {
+		border: 2px solid theme.$main-500;
+	}
+}
+
+.required {
+	color: theme.$red-500;
+}
+
+.error-message {
+	color: theme.$red-500;
+}

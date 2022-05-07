@@ -1,0 +1,45 @@
+@use "styles/theme.scss" as theme;
+@use "styles/mixin.scss" as mixin;
+
+.toast {
+	position: absolute;
+	width: 200px;
+	display: flex;
+	border-radius: 15px;
+	padding: 0.3rem;
+	margin: 0.3rem;
+	bottom: -1px;
+	left: -200px;
+	&.primary {
+		color: black;
+		background: theme.$green-400;
+	}
+
+	.img {
+		font-size: 1.3rem;
+	}
+
+	&.error {
+		color: white;
+		background: theme.$red-600;
+	}
+	&__title {
+		font-weight: bold;
+		font-size: 1.1rem;
+	}
+	animation: slideIn 0.5s ease 0.1s forwards;
+}
+
+.toast__portal {
+	position: sticky;
+	bottom: 0;
+}
+
+@keyframes slideIn {
+	0% {
+		left: -200px;
+	}
+	100% {
+		left: 0px;
+	}
+}

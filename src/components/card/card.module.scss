@@ -1,0 +1,65 @@
+@use "styles/theme.scss" as theme;
+@use "styles/mixin.scss" as mixin;
+
+.card {
+	border: 2px solid transparent;
+	background: theme.$main-50;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 5px;
+	transition: background 0.2s ease, border-color 0.2s ease;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	@media screen and (max-width: 768px) {
+		flex-wrap: wrap;
+	}
+	&:hover {
+		border-color: theme.$main-300;
+		background: theme.$main-100;
+	}
+	.user {
+		font-size: 1.3rem;
+		font-weight: 500;
+		@media screen and (max-width: 768px) {
+			@include mixin.fjcac;
+		}
+		.name {
+			display: none;
+			@media screen and (max-width: 768px) {
+				& {
+					display: block;
+				}
+			}
+		}
+
+		.user-img {
+			color: theme.$main-500;
+		}
+	}
+
+	.function {
+		width: 80px;
+	}
+
+	.jd {
+		width: 70%;
+		padding: 0 10px;
+		.name {
+			font-size: 1.5rem;
+			font-weight: 500;
+		}
+		@media screen and (max-width: 768px) {
+			display: none;
+		}
+	}
+
+	.jd__bottom {
+		display: none;
+		@media screen and (max-width: 768px) {
+			display: block;
+			width: 100%;
+			padding: 0 5px;
+		}
+	}
+}

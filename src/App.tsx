@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ContactModal from "components/contactModal";
+import Contacts from "components/contacts";
+import Nav from "components/nav";
+import LoadingAnimation from "components/spinner";
+import Toast from "components/toast";
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectSlice, userModalSlice } from "redux/selector";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const contactState = useSelector(selectSlice);
+	const userModalState = useSelector(userModalSlice);
+	return (
+		<div className="App">
+			<Nav />
+			<Contacts />
+			{contactState.isFetching && <LoadingAnimation isFullScreen />}
+			{userModalState.isOpen && <ContactModal />}
+			<Toast />
+		</div>
+	);
 }
 
 export default App;

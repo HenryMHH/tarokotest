@@ -1,0 +1,87 @@
+@use "./theme.scss" as theme;
+
+:global body {
+	margin: 0;
+	font-family: "Noto Sans TC", "Roboto", sans-serif;
+	color: theme.$main-900;
+}
+
+.nav {
+	position: sticky;
+	top: 0;
+	background: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1rem;
+	border-bottom: 1px solid;
+	z-index: 1000;
+	@media screen and (max-width: 768px) {
+		justify-content: center;
+	}
+	.logo {
+		padding: 0.5rem 1rem;
+		font-size: 1.5rem;
+	}
+
+	.menu {
+		@media screen and (max-width: 768px) {
+			position: absolute;
+			left: 0;
+		}
+
+		&__button {
+			padding: 5px;
+			cursor: pointer;
+
+			@media screen and (min-width: 768px) {
+				display: none;
+			}
+		}
+
+		&__content {
+			@media screen and (max-width: 768px) {
+				position: absolute;
+				top: 44px;
+				left: 0;
+				height: 100vh;
+				width: 150px;
+				background: white;
+				-webkit-box-shadow: 8px 13px 5px -3px rgba(0, 0, 0, 0.67);
+				box-shadow: 8px 13px 5px -3px rgba(0, 0, 0, 0.67);
+				text-align: center;
+				animation: slideIn 0.3s ease forwards;
+			}
+		}
+
+		.desktop-content {
+			display: block;
+			@media screen and (max-width: 768px) {
+				display: none;
+			}
+		}
+
+		.mobile-content {
+			display: none;
+			@media screen and (max-width: 768px) {
+				display: block;
+				transition: all 0.2s ease;
+				padding: 0.5rem;
+				cursor: pointer;
+				&:hover {
+					border: 1px solid;
+				}
+			}
+		}
+	}
+}
+
+@keyframes slideIn {
+	0% {
+		left: -200px;
+	}
+
+	100% {
+		left: 0px;
+	}
+}

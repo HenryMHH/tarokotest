@@ -1,0 +1,10 @@
+@mixin fjc {
+	display: flex;
+	justify-content: center;
+}
+
+@mixin fjcac {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
